@@ -5,32 +5,32 @@
  */
 //So far so good
 import express from 'express';
-import {Express} from 'express-serve-static-core'
-import {Request, Response} from 'express' ;
-import  {Route_t, routes as Routes} from './routes'
+import { Express } from 'express-serve-static-core'
+import { Request, Response } from 'express';
+import { Route_t, routes as Routes } from './routes'
 
 
-const app:Express = express();
+const app: Express = express();
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
-app.get('/ping', (_req, res)=>{
+app.use(express.urlencoded({ extended: true }));
+app.get('/ping', (_req, res) => {
     res.status(202).send('<h1>Hello World</h1>');
 });
-app.listen(3000, ()=>{
-    console.log("\x1b[32mStarted listening on 3000\x1b[0m", );
+app.listen(3000, () => {
+    console.log("\x1b[32mStarted listening on 3000\x1b[0m");
 });
 
 
 //==== Setting routes here ==============
-for (var routeT in Routes){
-    var method =  routeT.split(' ')[0];
-    var route =  routeT.split(' ')[1];
+for (var routeT in Routes) {
+    var method = routeT.split(' ')[0];
+    var route = routeT.split(' ')[1];
 
-    if(method == 'GET')
+    if (method == 'GET')
         app.route(route).get(Routes[routeT]);
-    if(method == 'POST')
+    if (method == 'POST')
         app.route(route).post(Routes[routeT]);
-    
+
 }
 
 

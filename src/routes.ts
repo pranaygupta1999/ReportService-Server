@@ -9,6 +9,7 @@ export interface Route_t {
 export const routes: Route_t = {
     'GET /logs': LogsController.getAllLogs,
     'GET /logs/:lid': LogsController.getLog,
+    'POST /logs': LogsController.postLog,
 
     'GET /apps': AppsController.getAllApps,
     'GET /apps/:aid': AppsController.getApp,

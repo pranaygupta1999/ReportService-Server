@@ -11,7 +11,7 @@ import { Route_t, routes as Routes } from './routes'
 
 
 const app: Express = express();
-app.use(express.json());
+app.use(express.json({ type: ['text/plain', 'application/json'] }));
 app.use(express.urlencoded({ extended: true }));
 app.get('/ping', (_req, res) => {
     res.status(202).send('<h1>Hello World</h1>');

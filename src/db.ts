@@ -1,8 +1,8 @@
 import mysql, { Connection } from 'mysql';
 const connection: Connection = mysql.createConnection({
-    user: "root",
-    password: "tiger",
-    database: "ReportService"
+    user: process.env.MYSQL_USER ? process.env.MYSQL_USER : 'root',
+    password: process.env.MYSQL_PASSWORD ? process.env.MYSQL_PASSWORD : "",
+    database: process.env.MYSQL_DATABASE ? process.env.MYSQL_DATABASE : "ReportService"
 });
 connection.connect((err) => {
     if (err) console.error(err);

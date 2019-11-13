@@ -36,6 +36,9 @@ var LogControllers = {
             });
 
         }
+        else{
+            res.status(400).json({msg:"one of the parameter is not valid", err: "Bad request"});
+        }
 
     }
 }

@@ -23,10 +23,11 @@ var LogControllers = {
         var message: String = req.body['message'] ? req.body['message'] : "";
         var logType: String = req.body['logType'] ? req.body['logType'] : "";
         var reportBy: String = req.body['reportBy'] ? req.body['reportBy'] : "";
+
+        message = message.replace(/'/g, "\\'");
+        message = message.replace(/"/g, '\\"');
         res.setHeader('Access-Control-Allow-Origin', '*');
-        console.log("working");
         if (aid && message && logType && reportBy) {
-            console.log(JSON.stringify(req.body));
             connection.query(`INSERT INTO Logs VALUES(${lid}, ${aid}, '${message}', '${logType}', '${reportBy}', DEFAULT)`, (err, rows, _field) => {
                 if (!err)
                     res.status(200).json({ msg: "Success" });

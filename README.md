@@ -1,8 +1,9 @@
 # Report Service server
 The server for accepting the error logs and obtaining all the customers, users and app registered.
 
+### Hosted Link - [Open Heroku Hosted Sever](https://report-service-error-logging.herokuapp.com/)
+
 ## The idea
----
 There are lot of companies whose apps are being used by the users worldwide. It becomes crucial for the company to identify if the app works properly.
 
 This is where the Error Logging and reporting System comes into play. The Report service provides set of tools and software to deal with the errors and logs being thrown by apps used by people worldwide.
@@ -15,7 +16,6 @@ This is where the Error Logging and reporting System comes into play. The Report
 - [**The Database**](https://github.com/pranaygupta1999/ReportService-database.git) - The mysql database to keep the record of al the _companies_, their _developers(users)_ and their _apps_(web or mobile) and the _errors_ logged by these apps
 
 ## Starting the server
----
  - Clone the repository
  - Start the mysql server([Clone this repo](https://github.com/pranaygupta1999/ReportService-database.git) for data insertion and table creation query)
  - Open the terminal and run following commands
@@ -25,7 +25,6 @@ This is where the Error Logging and reporting System comes into play. The Report
      - `npm start`
 
 ## Project structure [src]
----
  - Starting point is index.js
  - All routes are defined in `routes.ts`
  - db connection is established in `db.ts`

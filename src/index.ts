@@ -11,13 +11,15 @@ import { Route_t, routes as Routes } from './routes'
 
 
 const app: Express = express();
+const port = process.env.PORT || 3000;
+
 app.use(express.json({ type: ['text/plain', 'application/json'] }));
 app.use(express.urlencoded({ extended: true }));
-app.get('/ping', (_req, res) => {
-    res.status(202).send('<h1>Hello World</h1>');
+app.get('/', (_req, res) => {
+    res.status(202).send('<h1>Report Service - Error logging and reporting</h1><b>GitHub Link: </b><a href="https://github.com/pranaygupta1999/ReportService-Server" >Click Here</a>');
 });
-app.listen(3000, () => {
-    console.log("\x1b[32mStarted listening on 3000\x1b[0m");
+app.listen(port, () => {
+    console.log("\x1b[32mStarted listening on " + port +"\x1b[0m");
 });
 
 
